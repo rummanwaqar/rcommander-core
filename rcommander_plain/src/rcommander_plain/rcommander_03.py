@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import roslib; roslib.load_manifest('rcommander_plain')
 import rcommander.rcommander as rc
 import rospy
 import tf

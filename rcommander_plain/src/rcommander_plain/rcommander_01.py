@@ -5,5 +5,5 @@ import rospy
 import tf
 
 rospy.init_node('rcommander_plain', anonymous=True)
-rc.run_rcommander(['default'])
+rc.run_rcommander(['default', 'myrobot'])
 

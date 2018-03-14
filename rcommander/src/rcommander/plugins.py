@@ -13,14 +13,18 @@ def load_plugins(robot_namespaces):
     roswtf plugins
     @rtype: [fn], [fn]
     """
+    
     dependencies = roslib.rospack.rospack_depends_on_1('rcommander')
     plugin_classes = []
+    print "DEPENDENCIES: " + str(dependencies)
+    dependencies=['rcommander_plain']
     for pkg in dependencies:
         m_filename = roslib.manifest.manifest_file(pkg, True)
         manifest   = roslib.manifest.parse_file(m_filename)
         p_modules  = manifest.get_export('rcommander', 'plugin')
         p_tabs     = manifest.get_export('rcommander', 'tab')
         p_robots   = manifest.get_export('rcommander', 'robot')
+        print str(p_modules) + " -- " + str(p_tabs) + " -- " + str(p_robots)
         if not p_modules:
             continue
 
